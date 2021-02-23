@@ -1,15 +1,12 @@
 <header>
   <nav class="navbar shadow-1 primary">
-    <a href="#" target="_blank" class="navbar-brand">Immobilier</a>
-    <div class="navbar-menu ml-auto">
-      <div class="navbar-menu ml-auto" *ngIf="currentUser; else loggedOut">
-        <a class="navbar-link">{{ currentUser.email }}</a>
-        <a class="navbar-link" (click)="logout()">Déconnexion</a>
-      </div>
-
-      <ng-template #loggedOut>
-        <a class="navbar-link modal-trigger" data-target="modal-example">Connexion</a>
-      </ng-template>
+    <a class="navbar-brand">Immobilier</a>
+    <div class="navbar-menu ml-auto" *ngIf="currentUser;">
+      <a class="navbar-link">{{ currentUser?.email }}</a>
+      <a class="navbar-link" (click)="logout()">Déconnexion</a>
+    </div>
+    <div class="navbar-menu ml-auto" *ngIf="!currentUser;">
+      <a class="navbar-link modal-trigger" data-target="modal-example">Connexion</a>
     </div>
   </nav>
 </header>
@@ -26,11 +23,13 @@
       <div class="grix xs1 sm2">
         <div class="form-field">
           <label class="txt-left" for="email">Email</label>
-          <input [(ngModel)]="email" name="email" type="email" id="email" class="form-control rounded-1" placeholder="Email" />
+          <input [(ngModel)]="email" name="email" type="email" id="email" class="form-control rounded-1"
+            placeholder="Email" />
         </div>
         <div class="form-field">
           <label for="password">Mot de passe</label>
-          <input [(ngModel)]="password" name="password" type="text" id="password" class="form-control rounded-1" placeholder="Mot de passe" />
+          <input [(ngModel)]="password" name="password" type="text" id="password" class="form-control rounded-1"
+            placeholder="Mot de passe" />
         </div>
       </div>
       <div class="grix mt-5">
