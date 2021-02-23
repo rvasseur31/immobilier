@@ -1,12 +1,12 @@
 <header>
   <nav class="navbar shadow-1 primary">
     <a class="navbar-brand">Immobilier</a>
+    <div class="navbar-menu ml-auto" [style.visibility]="currentUser ? 'hidden': 'visible'">
+      <a class="navbar-link modal-trigger" data-target="modal-example">Connexion</a>
+    </div>
     <div class="navbar-menu ml-auto" *ngIf="currentUser;">
       <a class="navbar-link">{{ currentUser?.email }}</a>
       <a class="navbar-link" (click)="logout()">Déconnexion</a>
-    </div>
-    <div class="navbar-menu ml-auto" *ngIf="!currentUser;">
-      <a class="navbar-link modal-trigger" data-target="modal-example">Connexion</a>
     </div>
   </nav>
 </header>
