@@ -1,0 +1,14 @@
+<div class="card rounded-2 shadow-1 m-1">
+    <div class="card-header">{{ realEstate.name }}</div>
+
+    <div class="card-content">
+        <ul>
+            <li>Id : {{ realEstate?.id }}</li>
+            <li>Adresse : {{ realEstate?.address }}</li>
+            <li>Prix : {{ realEstate?.price }}</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <button (click)="sellRealEstate(realEstate?.id)" type="button" class="btn rounded-1 press secondary mx-auto mt-4">Vendre</button>
+    </div>
+</div>

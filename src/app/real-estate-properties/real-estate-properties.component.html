@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngIf="!currentUser; else logged">
+        <h1>Connectez-vous pour voir vos propriétés</h1>
+    </div>
+    <ng-template #logged>
+        <div *ngIf="realEstateProperties.length === 0" class="d-flex fx-col fx-center">
+            <h1>Vous n'avez pas de biens immobiliers</h1>
+        </div>
+        <div *ngIf="realEstateProperties.length > 0">
+            <h1>Liste des biens immobiliers</h1>
+            <div class="grix xs1 sm2">
+                <div *ngFor="let realEstate of realEstateProperties">
+                    <app-real-estate [realEstate]="realEstate"></app-real-estate>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
